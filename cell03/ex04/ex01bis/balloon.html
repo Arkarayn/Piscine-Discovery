@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Balloon</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    </head>
+    <style>
+        .body {
+            background-color: white;
+            text-align: center;
+        }
+        .div {
+            background-color: red;
+            border-radius: 100%;
+            margin: auto;
+            margin-top: 350px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        $(document).ready(function(){
+            $(".div").click(function(){
+                $(".div").animate({height: "+=10px", width: "+=10px", marginTop: "-=5px"}, 100);
+                if($(".div").height() > 420)
+                    $(".div").animate({height: "200px", width: "200px", marginTop: "350px"}, 500);
+                if($(".div").css("background-color") == "rgb(255, 0, 0)")
+                $(".div").css("background-color", "green");
+                else if($(".div").css("background-color") == "rgb(0, 128, 0)")
+                    $(".div").css("background-color", "blue");
+                else if($(".div").css("background-color") == "rgb(0, 0, 255)")
+                    $(".div").css("background-color", "red");
+            });
+            $(".div").mouseleave(function(){
+                if($(".div").height() > 200)
+                    $(".div").animate({height: "-=5px", width: "-=5px", marginTop: "+=2.5px"}, 100);
+                if($(".div").css("background-color") == "rgb(255, 0, 0)")
+                $(".div").css("background-color", "blue");
+                else if($(".div").css("background-color") == "rgb(0, 128, 0)")
+                    $(".div").css("background-color", "red");
+                else if($(".div").css("background-color") == "rgb(0, 0, 255)")
+                    $(".div").css("background-color", "green");
+            });
+        });
+    </script>
+    <body class="body">
+        <div class="div" style="height: 200px; width: 200px;"></div>
+    </body>
+</html>

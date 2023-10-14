@@ -1,0 +1,91 @@
+<html>
+    <head>
+        <title>Calc</title>
+    </head>
+    <style>
+        .body {
+            background-color: white;
+            text-align: center;
+            margin-top: 15%;
+        }
+
+        .button {
+            background-color: lightblue;
+            border-radius: 25px;
+            margin-top: 5%;
+            padding: 25px;
+            padding-left: 40px;
+            padding-right: 40px;
+            font-size: 25px;
+        }
+
+        .h1 {
+            font-size: 50px;
+            margin-top: -10%;
+        }
+
+        .text {
+            font-size: 25px;
+            border-radius: 15px;
+            margin-top: 12%;
+        }
+
+        .select {
+            font-size: 25px;
+            border-radius: 10px;
+            margin-top: 12%;
+        }
+    </style>
+    <script>
+        function calculate() {
+            var left = parseInt(document.getElementById("left-input").value);
+            var right = parseInt(document.getElementById("right-input").value);
+            var operator = document.getElementById("operator").value;
+            var result = 0;
+            switch(operator) {
+                case '+':
+                    result = left + right;
+                    break;
+                case '-':
+                    result = left - right;
+                    break;
+                case '*':
+                    result = left * right;
+                    break;
+                case '/':
+                    result = left / right;
+                    if(right == 0)
+                        result = "It's over 9000!";
+                    break;
+                case '%':
+                    result = left % right;
+                    if(right == 0)
+                        result = "It's over 9000!";
+                    break;
+            }
+            document.getElementById("left-input").value = '';
+            document.getElementById("right-input").value = '';
+            if(left < 0 || right < 0)
+                result = "Error :("
+            console.log(result);
+            alert(result);
+        }
+        function timedalert() {
+            alert("Please, use me...")
+        }
+        setInterval(timedalert, 30000);
+    </script>
+    <body class="body">
+        <h1 class="h1" >Calculator</h1>
+        <input class="text" type="text" id="left-input" placeholder="Left Member">
+        <select class="select" id="operator">
+            <option>+</option>
+            <option>-</option>
+            <option>*</option>
+            <option>/</option>
+            <option>%</option>
+        </select>
+        <input class="text" type="text" id="right-input" placeholder="Right Member"><br>
+        <button class="button" onclick="calculate()">Try me!</button>
+    </body>
+</html>

@@ -1,0 +1,36 @@
+.body {
+    text-align: center;
+}
+
+*{
+    border: 0px;
+    padding: 0px;
+    margin: 0px;
+}
+
+.parallax1 {
+    background-image: url("https://a-static.besthdwallpaper.com/windows-11-dark-black-dark-theme-wallpaper-2560x1440-111113_51.jpg");
+    min-height: 1000px;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.mid-parallax {
+    background-color: black;
+    min-height: 1000px;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.parallax2 {
+    background-image: url("https://4kwallpapers.com/images/wallpapers/windows-11-stock-black-abstract-black-background-amoled-3840x2160-8971.jpg");
+    min-height: 1000px;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.label {
+    font-size: 50px;
+    padding-top: 25%;
+    color: white;
+}

@@ -1,0 +1,88 @@
+<html>
+    <head>
+        <title>Calc</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    </head>
+    <style>
+        .body {
+            background-color: white;
+            text-align: center;
+            margin-top: 15%;
+        }
+
+        .button {
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 25px;
+            margin-top: 5%;
+            padding: 25px;
+            padding-left: 40px;
+            padding-right: 40px;
+            font-size: 25px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+        }
+
+        .h1 {
+            font-size: 50px;
+            margin-top: -10%;
+        }
+
+        .text {
+            font-size: 25px;
+            border-radius: 15px;
+            margin-top: 12%;
+        }
+
+        .select {
+            font-size: 25px;
+            border-radius: 10px;
+            margin-top: 12%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        $(document).ready(function(){
+            $(".button").click(function(){
+                let res;
+                if($("#left-input").val() == '' || $("#right-input").val() == '')
+                    res = ("Please, fill all the fields");
+                else if(isNaN($("#left-input").val()) || isNaN($("#right-input").val()))
+                    res = ("Please, use numbers");
+                else if($("#left-input").val() < 0 || $("#right-input").val() < 0)
+                    res = ("Error :(");
+                else if($("#operator").val() == '/' && $("#right-input").val() == 0)
+                    res = ("It's over 9000!");
+                else if($("#operator").val() == '%' && $("#right-input").val() == 0)
+                    res = ("It's over 9000!");
+                else if($("#operator").val() == '+')
+                    res = (parseInt($("#left-input").val()) + parseInt($("#right-input").val()));
+                else if($("#operator").val() == '-')
+                    res = (parseInt($("#left-input").val()) - parseInt($("#right-input").val()));
+                else if($("#operator").val() == '*')
+                    res = (parseInt($("#left-input").val()) * parseInt($("#right-input").val()));
+                else if($("#operator").val() == '%' && $("#right-input").val() != 0)
+                    res = (parseInt($("#left-input").val()) % parseInt($("#right-input").val()));
+                else if($("#operator").val() == '/' && $("#right-input").val() != 0)
+                    res = (parseInt($("#left-input").val()) / parseInt($("#right-input").val()));
+                alert(res);
+                console.log(res);
+            });
+        });
+        setInterval(function t(){alert("Please, use me...")}, 30000);
+    </script>
+    <body class="body">
+        <h1 class="h1" >Calculator</h1>
+        <input class="text" type="text" id="left-input" placeholder="Left Member">
+        <select class="select" id="operator">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+            <option value="%">%</option>
+        </select>
+        <input class="text" type="text" id="right-input" placeholder="Right Member"><br>
+        <button class="button">Try me!</button>
+    </body>
+</html>

@@ -1,0 +1,14 @@
+.bgcolor-body {
+    background-color: white;
+    text-align: center;
+}
+
+.title {
+    font-size: 50px;
+    padding-top: 15%;
+}
+
+.select {
+    background-color: lightblue;
+    font-size: 35px;
+}

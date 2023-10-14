@@ -1,0 +1,65 @@
+<html>
+    <head>
+        <title>Balloon</title>
+    </head>
+    <style>
+        .body {
+            background-color: white;
+            text-align: center;
+        }
+        .div {
+            background-color: red;
+            border-radius: 100%;
+        }
+    </style>
+    <script>
+        function increase() {
+            switch(document.getElementById("div").style.backgroundColor) {
+                case 'red':
+                    document.getElementById("div").style.backgroundColor = 'green';
+                    break;
+                case 'green':
+                    document.getElementById("div").style.backgroundColor = 'blue';
+                    break;
+                case 'blue':
+                    document.getElementById("div").style.backgroundColor = 'red';
+                    break;
+                default:
+                    document.getElementById("div").style.backgroundColor = 'green';
+                    break;
+            }
+            document.getElementById("div").style.width = (parseInt(document.getElementById("div").style.width) + 10) + "px";
+            document.getElementById("div").style.height = (parseInt(document.getElementById("div").style.height) + 10) + "px";
+            document.getElementById("div").style.paddingTop = (parseInt(document.getElementById("div").style.paddingTop) + 5) + "px";
+            if(document.getElementById("div").style.width == "420px" && document.getElementById("div").style.height == "420px") {
+                document.getElementById("div").style.width = "200px";
+                document.getElementById("div").style.height = "200px";
+            }
+        }
+        function decrease() {
+            switch(document.getElementById("div").style.backgroundColor) {
+                case 'red':
+                    document.getElementById("div").style.backgroundColor = 'blue';
+                    break;
+                case 'green':
+                    document.getElementById("div").style.backgroundColor = 'red';
+                    break;
+                case 'blue':
+                    document.getElementById("div").style.backgroundColor = 'green';
+                    break;
+                default:
+                    document.getElementById("div").style.backgroundColor = 'blue';
+                    break;
+            }
+            document.getElementById("div").style.width = (parseInt(document.getElementById("div").style.width) - 5) + "px";
+            document.getElementById("div").style.height = (parseInt(document.getElementById("div").style.height) - 5) + "px";
+            if(document.getElementById("div").style.width < "200px" && document.getElementById("div").style.height < "200px") {
+                document.getElementById("div").style.width = "200px";
+                document.getElementById("div").style.height = "200px";
+            }
+        }
+    </script>
+    <body class="body">
+        <div class="div" id="div" style="height: 200px; width: 200px;" onmouseout="decrease()" onclick="increase()"></div>
+    </body>
+</html>
